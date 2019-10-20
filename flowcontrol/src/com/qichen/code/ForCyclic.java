@@ -1,5 +1,7 @@
 package com.qichen.code;
 
+import java.util.Scanner;
+
 /**
  * @author qichen
  * @Date 2019/10/20
@@ -18,6 +20,7 @@ package com.qichen.code;
  */
 public class ForCyclic {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         /*{
             int result = 0;
             for (int i = 1; i <= 100; i++) {
@@ -46,6 +49,32 @@ public class ForCyclic {
                 System.out.println("");
             }
         }*/
-
+        /*
+            题目：输入两个正整数m和n，求其最大公约数和最小公倍数。
+            比如： 12和20的最大公约数是4，最小公倍数是60。
+         */
+        {
+            int m = scanner.nextInt();
+            int n = scanner.nextInt();
+            if (m == n) {
+                System.out.println("最大公约数和最小公倍数均为：" + m);
+            }
+            int max = (m > n) ? m : n;
+            int min = (m < n) ? m : n;
+            //最大公约数
+            for (int i = min; i > 0; i--) {
+                if (max % i == 0 && min % i == 0) {
+                    System.out.println("最大公约数：" + i);
+                    break;
+                }
+            }
+            //最小公倍数
+            for (int i = max; ; i++) {
+                if (i%max==0&&i%min==0){
+                    System.out.println("最小公倍数："+i);
+                    break;
+                }
+            }
+        }
     }
 }
